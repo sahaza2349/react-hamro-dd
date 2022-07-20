@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
+import style from './login.css'  
 import '../forms.css'
 import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
 import {auth} from '../firebase'
@@ -34,28 +35,28 @@ function Login(){
   }
 
   return(
-    <div className='center'>
-      <div className='auth'>
-        <h1>Log in</h1>
+    <div className='mainContainer' >
+      <div className='loginContainer' >
+        <h1 className='loginTitle'>Log in</h1>
         {error && <div className='auth__error'>{error}</div>}
-        <form onSubmit={login} name='login_form'>
-          <input 
+        <form onSubmit={login} name='login_form' className='formStyle'>
+          <input className='emailInputStyle'
             type='email' 
             value={email}
             required
             placeholder="Enter your email"
             onChange={e => setEmail(e.target.value)}/>
 
-          <input 
+          <input className='passwordInputStyle'
             type='password'
             value={password}
             required
             placeholder='Enter your password'
             onChange={e => setPassword(e.target.value)}/>
 
-          <button type='submit'>Login</button>
+          <button type='submit' className='buttonStyle'>Login</button>
         </form>
-        <p>
+        <p className='textStyle1'>
           Don't have and account? 
           <Link to='/register'>Create one here</Link>
         </p>

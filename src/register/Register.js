@@ -4,6 +4,7 @@ import {auth} from '../firebase'
 import {useNavigate, Link} from 'react-router-dom'
 import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
 import {useAuthValue} from '../AuthContext'
+import style from './register.css'
 
 function Register() {
   const [email, setEmail] = useState('')
@@ -47,38 +48,43 @@ function Register() {
   }
 
   return (
-    <div className='center'>
-      <div className='auth'>
-        <h1>Register</h1>
-        {error && <div className='auth__error'>{error}</div>}
-        <form onSubmit={register} name='registration_form'>
-          <input 
-            type='email' 
-            value={email}
-            placeholder="Enter your email"
-            required
-            onChange={e => setEmail(e.target.value)}/>
+    <div className='main'>
+      <div className='center'>
+        <div className='auth'>
+          <h1 className='registerTitle'>Create account</h1>
+          {error && <div className='auth__error'>{error}</div>}
+          <form onSubmit={register} name='registration_form' className='formStyle' >
+            <input  className='emailInputStyle'
+              type='email' 
+              value={email}
+              placeholder="Enter your email"
+              required
+              onChange={e => setEmail(e.target.value)}/>
 
-          <input 
-            type='password'
-            value={password} 
-            required
-            placeholder='Enter your password'
-            onChange={e => setPassword(e.target.value)}/>
+            <input className='passwordInputStyle'
+              type='password'
+              value={password} 
+              required
+              placeholder='Enter your password'
+              onChange={e => setPassword(e.target.value)}/>
 
-            <input 
-            type='password'
-            value={confirmPassword} 
-            required
-            placeholder='Confirm password'
-            onChange={e => setConfirmPassword(e.target.value)}/>
+              <input 
+              type='password' className='passwordInputStyle'
+              value={confirmPassword} 
+              required
+              placeholder='Confirm password'
+              onChange={e => setConfirmPassword(e.target.value)}/>
 
-          <button type='submit'>Register</button>
-        </form>
-        <span>
-          Already have an account?  
-          <Link to='/login'>login</Link>
-        </span>
+            <button type='submit' className='buttonStyle'>Register</button>
+          </form>
+          <span className='textStyle'>
+            Already have an account?
+            <Link to='/login'>Go to login</Link>
+          </span>
+        </div>
+        <div>
+          <img src='maidRegister.jpeg' className='imgStyle'/> 
+        </div>
       </div>
     </div>
   )

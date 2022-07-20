@@ -29,7 +29,8 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <PrivateRoute>
-              <Dashboard />
+              {/* <Dashboard /> */}
+              <Profile/>
             </PrivateRoute>
           } />
           <Route path="/login"
