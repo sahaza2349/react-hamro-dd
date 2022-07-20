@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // import Profile from './Profile'
 import Register from './register/Register'
 import VerifyEmail from './verifyEmail/VerifyEmail';
-// import Login from './Login'
+import Login from './login/Login'
 import { useState, useEffect } from 'react'
 import { AuthProvider } from './AuthContext.js'
 import { auth } from './firebase'
@@ -32,11 +32,11 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="/login"
-          // element={
-          //   !currentUser?.emailVerified 
-          //   ? <Login/>
-          //   : <Navigate to='/' replace/>
-          // } 
+            element={
+              !currentUser?.emailVerified
+                ? <Login />
+                : <Navigate to='/' replace />
+            }
           />
           <Route path="/register"
             element={
