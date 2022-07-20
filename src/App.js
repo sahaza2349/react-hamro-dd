@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import Profile from './Profile'
+import Profile from './profile/Profile'
 import Register from './register/Register'
 import VerifyEmail from './verifyEmail/VerifyEmail';
 import Login from './login/Login'
@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={
             <PrivateRoute>
-              {/* <Profile/> */}
+              <Profile/>
             </PrivateRoute>
           } />
           <Route path="/login"
